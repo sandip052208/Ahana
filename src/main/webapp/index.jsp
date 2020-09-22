@@ -11,6 +11,6 @@
         <title>Welcome Page</title>
     </head>
     <body>
-        Ahana is now 7 years old and she is a very good girl
+        Ahana is now 7 years old and she is a very good girl. She studies in Somerville school
     </body>
 </html>
