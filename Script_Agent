@@ -28,7 +28,7 @@ pipeline {
 			}
 			steps {
 				echo "Deploying into Tomcat";
-				deploy adapters: [tomcat8(credentialsId: '48fb8f78-f007-4388-b6db-c3f74352c875', path: '', url: 'http://localhost:8081/')], contextPath: 'Scripted_Pipeline_First_Agent', war: '**/*.war'                
+				deploy adapters: [tomcat8(credentialsId: '48fb8f78-f007-4388-b6db-c3f74352c875', path: '', url: 'http://localhost:8081/')], contextPath: 'Scripted_Pipeline_Second_Agent', war: '**/*.war'                
 				}
 		}
 		
