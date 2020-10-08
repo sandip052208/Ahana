@@ -1,0 +1,58 @@
+pipeline {
+	agent none
+	stages {
+		stage('git-checkout') {		
+			agent {
+					label 'master'
+			}
+			steps {
+				echo "Checking out from Git repository";
+				git branch: 'Scripted_Pipeline_First_Agent', credentialsId: '35dc8b3a-2dca-4654-a2a6-abcebd372d4a', url: 'https://github.com/sandip052208/Ahana.git'
+			}
+		}	
+		 
+		
+		stage('build') {
+			agent {
+					label 'Agent_Scripted_Pipeline'
+			}
+			steps {
+				echo "Building project Ahana";
+				bat label: '', script: 'mvn clean package'				
+			}
+		}
+		
+		stage('deploy') {
+			agent {
+					label 'Agent_Scripted_Pipeline'
+			}
+			steps {
+				echo "Deploying into Tomcat";
+				deploy adapters: [tomcat8(credentialsId: '48fb8f78-f007-4388-b6db-c3f74352c875', path: '', url: 'http://localhost:8081/')], contextPath: 'Scripted_Pipeline_First_Agent', war: '**/*.war'                
+				}
+		}
+		
+	}
+	
+	post {
+		always {
+			echo "Run always"
+		}
+		
+		success {
+			echo "Run after success"
+		}
+		
+		failure {
+			echo "Run after failure"
+		}
+		
+		unstable {
+			echo "This will run only if the run was marked as unstable"
+		}
+		
+		changed {
+			echo "This will run only if the state of the pipeline has changed"
+		}
+	}
+}
