@@ -24,7 +24,7 @@ pipeline {
 		
 		stage('deploy') {
 			agent {
-					label 'Agent_Scripted_Pipeline'th
+					label 'Agent_Scripted_Pipeline'
 			}
 			steps {
 				echo "Deploying into Tomcat";
