@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('git-checkout') {		
 			agent {
-					label 'master'
+					label 'Agent_Scripted_Pipeline'
 			}
 			steps {
 				echo "Checking out from Git repository";
