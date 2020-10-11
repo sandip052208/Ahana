@@ -12,6 +12,6 @@
     </head>
     <body>
         Ahana is my daughter. She is now 7 years old and she is a very good girl. She studies in Somerville school and in class II A.
-        Git check out in master and build/deploy in agent.
+        Git check out in master and build/deploy in agent. Testing Script.
     </body>
 </html>
